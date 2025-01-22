@@ -1,20 +1,18 @@
-// const mongoose = require('mongoose');
+import mongoose from "mongoose";
+const { Schema, Types } = mongoose;
 
-// const notesSchema = new mongoose.Schema({
-//   username: { 
-//     type: String, 
-//     unique: true 
-//   },
-//   userId: { 
-//     type: mongoose.Schema.Types.ObjectId, 
-//     ref: 'User' // Reference the 'User' model by its collection name
-//   },
-//   note_title: { 
-//     type: String 
-//   },
-//   notes: { 
-//     type: String, 
-//   },
-// });
+const notesSchema = new mongoose.Schema({
+  userId: { 
+    type: Types.ObjectId,
+    ref: 'User' 
+  },
+  
+  title: { 
+    type: String 
+  },
+  description: { 
+    type: String, 
+  },
+});
 
-// export const notesModel = mongoose.model('Note', notesSchema);
+export const Note = mongoose.model('Note', notesSchema);
